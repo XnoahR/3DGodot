@@ -6,6 +6,14 @@ func _ready():
 	camera = $Camera3D
 	pass # Replace with function body.
 
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	_camera_move(delta)
+	pass
+
+
 func _camera_move(delta):
 	if(Input.is_action_pressed("ui_up")):
 		camera.transform.origin += Vector3(0,0,5*delta)
@@ -16,8 +24,3 @@ func _camera_move(delta):
 	if(Input.is_action_pressed("ui_right")):
 		camera.transform.origin += Vector3(0.1,0,0)
 	
-#s
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	_camera_move(delta)
-	pass
