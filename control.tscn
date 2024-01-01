@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5vs5ro1ut64q"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_hsdx7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bwjmx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rlsu5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_goqjn"]
+
+[node name="Control" type="Node3D"]
+script = ExtResource("1_hsdx7")
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.97498, 0, 0)
+mesh = SubResource("PlaneMesh_bwjmx")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27076, 0, 0.00875431)
+mesh = SubResource("SphereMesh_rlsu5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504547, 0.55204, 1.3821)
+fov = 107.5
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_goqjn")
