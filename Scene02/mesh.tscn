@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmqrpmfnqort0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jx6vk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ao55r"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x33ro"]
+size = Vector2(10, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.43148)
+mesh = SubResource("BoxMesh_jx6vk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.37796)
+mesh = SubResource("SphereMesh_ao55r")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.627465)
+mesh = SubResource("BoxMesh_jx6vk")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0510546, -0.714409, 0.627465)
+mesh = SubResource("PlaneMesh_x33ro")

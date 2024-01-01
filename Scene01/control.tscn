@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5vs5ro1ut64q"]
 
-[ext_resource type="Script" path="res://camera.gd" id="1_hsdx7"]
+[ext_resource type="Script" path="res://Scene01/camera.gd" id="1_hsdx7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bwjmx"]
 
