@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djq1nmwi8f2qf"]
+
+[ext_resource type="PackedScene" uid="uid://bn1walnwfe5r5" path="res://Models/Fu Xuan/scene.gltf" id="1_w4mku"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5xs8n"]
+
+[node name="Import" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.181547, 0)
+mesh = SubResource("PlaneMesh_5xs8n")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_w4mku")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116656, 0, 0.0121669)
