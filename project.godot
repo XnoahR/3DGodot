@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3DGodot"
-run/main_scene="res://Scene01/control.tscn"
+run/main_scene="res://Scenes/Scene01/control.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 

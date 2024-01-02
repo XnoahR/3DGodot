@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvqv5npputrgp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j85pn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p3qjn"]
+size = Vector2(5, 5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2miok"]
+
+[node name="Lighting" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.963994, 0.522924, 0)
+mesh = SubResource("BoxMesh_j85pn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_p3qjn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50073, 0.521738, 0)
+mesh = SubResource("SphereMesh_2miok")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.309071, 1.07848, 0)
+visible = false
+light_color = Color(0.305882, 1, 1, 1)
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 2.347
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.542999, 0.839734, 0, -0.839734, 0.542999, 0.214714, 1.7277, 2.14287)
+visible = false
+light_color = Color(0.627451, 0.678431, 0.968627, 1)
+light_size = 0.51
+shadow_enabled = true
+shadow_transmittance_bias = 8.131
+spot_range = 6.433
+spot_attenuation = 0.318641
+spot_angle = 41.36
+spot_angle_attenuation = 0.297302
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.962094, 0.272717, 0, -0.272717, 0.962094, -0.677451, 0.874289, 4.80181)
+light_color = Color(0.882353, 0.576471, 0.243137, 1)
+shadow_enabled = true
+sky_mode = 1
