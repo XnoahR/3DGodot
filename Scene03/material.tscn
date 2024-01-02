@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmhepsig80di7"]
+
+[ext_resource type="Material" uid="uid://d02chd3uk2rvi" path="res://Materials/Rock_Floor.tres" id="1_w0gu0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2rx7q"]
+material = ExtResource("1_w0gu0")
+size = Vector2(5, 5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ft8fg"]
+
+[node name="Material" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.269886, 0)
+mesh = SubResource("PlaneMesh_2rx7q")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81338, 0, 0)
+mesh = SubResource("SphereMesh_ft8fg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40972, 0)
