@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq2lek8hwnndf"]
+[gd_scene load_steps=10 format=3 uid="uid://bq2lek8hwnndf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gh5tv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2k4rv"]
 albedo_color = Color(0.258824, 0.282353, 0.329412, 1)
@@ -29,6 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 0.666793, 0.745243, 0, -0.745243, 0.666793, 
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_gh5tv")
 
 [node name="Tanah" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_um8kd")
@@ -39,6 +42,7 @@ shape = SubResource("BoxShape3D_copul")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 2)
+freeze = true
 
 [node name="Bola" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_lwmuo")
