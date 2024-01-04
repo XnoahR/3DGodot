@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq2lek8hwnndf"]
+[gd_scene load_steps=11 format=3 uid="uid://bq2lek8hwnndf"]
+
+[ext_resource type="Script" path="res://Scenes/Scene07/ball.gd" id="1_kqa86"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gh5tv"]
 
@@ -41,14 +43,28 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_copul")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 2)
-freeze = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.91194, 2)
+max_contacts_reported = 2
+contact_monitor = true
+linear_damp = 1.0
+angular_damp = 1.0
+script = ExtResource("1_kqa86")
 
 [node name="Bola" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_lwmuo")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_waesd")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98394, 0.813764, 2)
+
+[node name="Bola" type="MeshInstance3D" parent="RigidBody3D2"]
+mesh = SubResource("SphereMesh_lwmuo")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
 shape = SubResource("SphereShape3D_waesd")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -63,3 +79,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("BoxShape3D_806xd")
+
+[connection signal="body_entered" from="RigidBody3D" to="RigidBody3D" method="_on_body_entered"]
+[connection signal="body_entered" from="RigidBody3D2" to="RigidBody3D" method="_on_rigid_body_3d_2_body_entered"]
