@@ -5,7 +5,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func _physics_process(delta):
 	if(!is_on_floor()):
 		velocity.y -= gravity*delta
-	elif(Input.is_action_pressed("ui_accept")):
+	elif(Input.is_action_just_pressed("ui_accept")):
 		velocity.y = 4.5
 	
 	move_and_slide()

@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3un04uuf05m8"]
+
+[ext_resource type="Script" path="res://Scenes/Scene09/Area3D.gd" id="1_ln2vd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7y4pf"]
+size = Vector3(15, 0.15, 15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b5kma"]
+size = Vector2(15, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpr33"]
+albedo_color = Color(0.301961, 0.854902, 0.580392, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_kjaal"]
+material = SubResource("StandardMaterial3D_cpr33")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_e0r8a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i33ps"]
+albedo_color = Color(1, 0.0980392, 0.513726, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ynj5c"]
+material = SubResource("StandardMaterial3D_i33ps")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6431"]
+
+[node name="Area" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7y4pf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_b5kma")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_kjaal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_e0r8a")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+mesh = SubResource("SphereMesh_kjaal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+shape = SubResource("SphereShape3D_e0r8a")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
+mesh = SubResource("SphereMesh_kjaal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+shape = SubResource("SphereShape3D_e0r8a")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.144289, 2, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4"]
+mesh = SubResource("SphereMesh_kjaal")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+shape = SubResource("SphereShape3D_e0r8a")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.60866, 0)
+light_color = Color(0.501961, 1, 1, 1)
+light_energy = 1.632
+spot_range = 4096.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.901816, -0.284656, 0.325112, 0, 0.752367, 0.658744, -0.432119, 0.594066, -0.678497, 1.71622, 4.1383, -2.98246)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.15354, 0.786845, -0.0740917)
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 1, 0)
+gravity_direction = Vector3(0, 1, 0)
+gravity = 2.0
+script = ExtResource("1_ln2vd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.431233)
+mesh = SubResource("QuadMesh_ynj5c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_m6431")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
