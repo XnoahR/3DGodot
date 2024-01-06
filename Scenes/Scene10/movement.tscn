@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgr0gmnaiglv1"]
+
+[ext_resource type="PackedScene" uid="uid://cw6cb1tl6vde4" path="res://Scenes/Scene10/Player.tscn" id="1_rdiy8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vqmn"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fg680"]
+material = SubResource("StandardMaterial3D_4vqmn")
+size = Vector2(15, 15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7dut"]
+size = Vector3(15, 0.1, 15)
+
+[node name="Movement" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_fg680")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_a7dut")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.787602, 0.616184, 0, -0.616184, 0.787602, 0, 3.48731, 7.44397)
+light_color = Color(0.898039, 0.941176, 0.572549, 1)
+spot_range = 25.0
+spot_attenuation = 0.594603
+spot_angle = 60.16
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.00149848, 0.616554, -0.787312, 0.000720844, 0.787313, 0.616553, 0.999999, 0.000356364, -0.00162421, -9.1952, 3.48731, 0.626784)
+light_color = Color(0.898039, 0.941176, 0.572549, 1)
+spot_range = 25.0
+spot_attenuation = 0.594603
+spot_angle = 60.16
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.932653, -0.182553, 0.31118, 0, 0.862532, 0.506002, -0.360775, -0.471924, 0.804443, 2.99386, 3.63991, 6.29872)
+
+[node name="manequin" parent="." instance=ExtResource("1_rdiy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76305, 0, 0)
+speed = 2.0
