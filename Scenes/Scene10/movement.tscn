@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgr0gmnaiglv1"]
+[gd_scene load_steps=6 format=3 uid="uid://cgr0gmnaiglv1"]
 
 [ext_resource type="PackedScene" uid="uid://cw6cb1tl6vde4" path="res://Scenes/Scene10/Player.tscn" id="1_rdiy8"]
 
@@ -9,7 +9,8 @@ material = SubResource("StandardMaterial3D_4vqmn")
 size = Vector2(15, 15)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a7dut"]
-size = Vector3(15, 0.1, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_74jby"]
 
 [node name="Movement" type="Node3D"]
 
@@ -19,6 +20,15 @@ size = Vector3(15, 0.1, 15)
 mesh = SubResource("PlaneMesh_fg680")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_a7dut")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13451, 1.0696, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_74jby")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("BoxShape3D_a7dut")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
@@ -38,7 +48,3 @@ spot_angle = 60.16
 [node name="manequin" parent="." instance=ExtResource("1_rdiy8")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.76305, 0, 0)
 speed = 2.0
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -5.67224, 1.62567, 1.57813)
-near = 0.1
