@@ -35,9 +35,10 @@ spot_range = 25.0
 spot_attenuation = 0.594603
 spot_angle = 60.16
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.932653, -0.182553, 0.31118, 0, 0.862532, 0.506002, -0.360775, -0.471924, 0.804443, 2.99386, 3.63991, 6.29872)
-
 [node name="manequin" parent="." instance=ExtResource("1_rdiy8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.76305, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.76305, 0, 0)
 speed = 2.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -5.67224, 1.62567, 1.57813)
+near = 0.1
